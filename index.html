@@ -8,12 +8,12 @@
 </head>
 <body>
     <h1>Formularze</h1>
-    <!--Formularz do uzupełnienia danych, atrybut AUTOFOCUS czyli automatyczny kursor, atrybut AUTOCOMPLETE czyli uzupełnianie danych formularza z lub bez podpowiedzi-->
+    <!--Formularz do uzupełnienia danych, atrybut AUTOFOCUS czyli automatyczny kursor, atrybut AUTOCOMPLETE czyli uzupełnianie danych formularza z lub bez podpowiedzi, atrybut PLACEHOLDER umożliwia wstawienie tekstu podpowiedzi do formularza-->
     <form action="#" method="get">
-    	<p><label for="imie">Imię</label><input name="imie" type="text" id="imie" autofocus /></p>
-        <p><label for="nazw">Nazwisko</label><input name="nazw" type="text" id="nazw" /></p>
-        <p><label for="wiek">Wiek</label><input name="wiek" type="text" id="wiek" autocomplete="off"/></p>
-        <p><label for="kraj">Kraj</label><input name="kraj" type="text" id="kraj" autocomplete="on" /></p>
+    	<p><label for="imie">Imię</label><input name="imie" type="text" id="imie" autofocus placeholder="podaj swoje imię" /></p>
+        <p><label for="nazw">Nazwisko</label><input name="nazw" type="text" id="nazw" placeholder="podaj swoje nazwisko"/></p>
+        <p><label for="wiek">Wiek</label><input name="wiek" type="text" id="wiek" autocomplete="off" placeholder="podaj swój wiek"/></p>
+        <p><label for="kraj">Kraj</label><input name="kraj" type="text" id="kraj" autocomplete="on" placeholder="podaj swój kraj"/></p>
         <p><input type="submit" value="Wyślij" id="submit" /></p>
     </form>
     
