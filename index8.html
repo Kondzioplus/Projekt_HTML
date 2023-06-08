@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Formularze - Pole data</title>
+<!--wygląd strony, style-->
+<link rel="stylesheet" type="text/css" href="style.css" />
+<!--biblioteka JQUERY, style-->
+<link rel="stylesheet" type="text/css" href="../Projekt_HTML/jquery-ui-1.13.2.custom/jquery-ui.min.css" />
+<!--podstawowa wersja JQUERY-->
+<script type="text/javascript" src="../Projekt_HTML/jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+<!--zminimalizowana wersja JQUERY-->
+<script type="text/javascript" src="../Projekt_HTML/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+<!--biblioteka MODERNIZR-->
+<script type="text/javascript" src="../Projekt_HTML/scripts/modernizr-custom.js"></script>
+<!--funkcja wyswietlająca DATE w formularzu-->
+<script type="text/javascript">
+
+	if(Modernizr.inputtypes.date){
+	} else {
+	$(function(){
+		$("#data").datepicker();
+	});
+	}
+
+</script>
+
+</head>
+
+<body>
+
+    <h1>Formularze</h1>
+    
+    <form action="#" method="get">
+    	<p><label for="imie">Imię</label><input name="imie" type="text" id="imie" /></p>
+        <p><label for="nazw">Nazwisko</label><input name="nazw" type="text" id="nazw" /></p>
+        <p><label for="wiek">Wiek</label><input name="wiek" type="text" id="wiek" /></p>
+        <p><label for="kraj">Kraj</label><input name="kraj" type="text" id="kraj" /></p>
+        <p><label for="data">Data</label><input name="data" type="date" id="data" /></p>
+        <p><input type="submit" value="Wyślij" id="submit" /></p>
+    </form>
+
+</body>
+</html>
