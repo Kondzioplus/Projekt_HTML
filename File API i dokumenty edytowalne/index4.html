@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Formularze - output</title>
+<!--style,wygląd-->
+<link rel="stylesheet" type="text/css" href="style.css" />
+<!--funkcja wywołujaca komunikat z tytułem pliku podczas dodawania/przeglądania dokumentów + dodatkowe info do wyswietlenia NAZWA TYP ROZMIAR-->
+<script type="text/javascript">
+
+	function init(){
+		document.getElementById("plik").addEventListener("change",zmianaPliku);
+	}
+
+	window.addEventListener("load",init);
+	
+	function zmianaPliku(plik){
+		var nowyplik = plik.target.files[0];
+		alert("Nazwa: " + nowyplik.name + " Typ: " + nowyplik.type + " Rozmiar: " + nowyplik.size);
+	}
+
+</script>
+
+</head>
+
+<body>
+<!--przycisk PRZEGLADAJ do dodawania plików-->
+    <input type="file" id="plik" />
+
+</body>
+</html>
