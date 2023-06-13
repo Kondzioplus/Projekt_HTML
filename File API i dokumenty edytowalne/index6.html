@@ -13,23 +13,27 @@
 	}
 
 	window.addEventListener("load",init);
-	//funkcja sprawdzajaca TYPY plików.
+	//funkcja sprawdzajaca TYP obrazka
 	function zmianaPliku(plik){
-		var nowyplik = plik.target.files[0];
-		//wyrażenie sprawdzajace czy dodawane pliki maja TYP text/plain.
-		if(nowyplik.type != "text/plain" ){
-			alert("To nie jest plik tekstowy");
+		var nowyplik1 = plik.target.files[0];
+		//"image/*"- typ image / przez wszystkie podtypy.
+		if(!nowyplik1.type.match("image/*") ){
+			alert("To nie jest plik obrazka");
 			return;
 		}
 		//funkcja wyswietlajaca treść komunikatu na stronie zamiast okienka ALERT.
 		var reader = new FileReader();
-		//pamietaj utworzyć plik tekstowy o nazwie "nowyplik" z komunikatem!
+		//pamietaj utworzyć plik tekstowy o nazwie "nowyplik1" z komunikatem!
 		reader.onload = function(zdarzenie){
 			var zawartosc = zdarzenie.target.result;
-			document.getElementById("tresc").innerHTML = zawartosc;
+			
+			var obrazek = new Image();
+			obrazek.src = zdarzenie.target.result;
+			document.getElementById("tresc").appendChild(obrazek);
+			
 		}
 		//wywołanie funkcji.
-		reader.readAsText(nowyplik);
+		reader.readAsDataURL(nowyplik1);
 		
 	}
 
@@ -40,7 +44,7 @@
 <body>
 <!--przycisk PRZEGLADAJ do dodawania plików-->
     <input type="file" id="plik" />
-<!--div z treścia komunikatu do wyswietlenia zamiast okienka ALERT-->    
+<!--div z treścia komunikatu do wyswietlenia zamiast okienka ALERT-->
     <div id="tresc"></div>
 
 </body>
