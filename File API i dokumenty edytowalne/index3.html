@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Formularze - output</title>
+
+
+<!--funkcja wywołujaca komunikat z tytułem pliku podczas dodawania/przeglądania dokumentów-->
+<script type="text/javascript">
+
+	function init(){
+		document.getElementById("plik").addEventListener("change",zmianaPliku);
+	}
+
+	window.addEventListener("load",init);
+	
+	function zmianaPliku(plik){
+		alert(plik.target.files[0].name);
+	}
+
+</script>
+
+</head>
+
+<body>
+<!--przycisk PRZEGLADAJ do dodawania plików-->
+    <input type="file" id="plik" />
+
+</body>
+</html>
