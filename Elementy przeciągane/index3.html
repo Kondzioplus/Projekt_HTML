@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Przeciąganie</title>
+<!--wygląd, style-->
+<link rel="stylesheet" type="text/css" href="../Elementy przeciągane/style/style1.css" />
+<!--funkcja umożliwiajaca przeciąganie elementów na stronie-->
+<script type="text/javascript">
+	
+	function init(){
+		//wyrażenie DRAGSTART dla zapoczątkowania przeciągania elementu.
+        document.getElementById("przeciagnij").addEventListener("dragstart",obsluzPoczatek, false);
+		//wyrażenie DRAGOVER - moment w którym umieścimy kursor nad docelowym elementem DIV.
+        document.getElementById("docelowy").addEventListener("dragover",obsluzDragover, false);
+		//wyrażenie DROP dla upuszczenia elementu w wyznaczonym miejscu.
+        document.getElementById("docelowy").addEventListener("drop",obsluzZrzut, false);
+	}
+	//funkcja obsługujaca zdarzenie PRZECIAGANIA, parametr SETDATA do wyciagniecia i przypisania danych.(e)- EVENT czyli zdarzenie. Tworzenie DOCELOWEGO miejsca na upuszczenie elementu.
+	function obsluzPoczatek(e){
+		e.dataTransfer.setData('Obrazek',e.target.id);
+	}
+	//funkcja blokujaca domyslna akcje przeglądarki. PREVENTDEFAULT.
+	function obsluzDragover(e){
+		e.preventDefault();
+		return false;
+	}
+	//funkcja obsługująca zdarzenie UPUSZCZANIA, parametr GETDATA do pobrania wyciągnietych danych.
+	function obsluzZrzut(e){
+		var zrodlo = e.dataTransfer.getData('Obrazek');
+		e.target.appendChild(document.getElementById(zrodlo));
+		e.preventDefault();
+	}
+	//wywołanie funkcji.
+	window.onload = function(){
+		init();
+	}
+	
+</script>
+
+</head>
+
+<body>
+<!--obrazek do przeciągania i span do którego przeciągamy-->
+    
+    <span id="przeciagnij" draggable="true">
+    <img src="../Elementy przeciągane/image/okladka.png" alt="#" id="obrazek" />
+    </span>
+    <!--miejsce DOCELOWE do upuszczania elementów-->
+	<div id="docelowy">
+    </div>
+    
+</body>
+</html>
