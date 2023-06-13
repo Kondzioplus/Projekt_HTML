@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Przeciąganie</title>
+<!--wygląd, style-->
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+<!--funkcja umożliwiajaca przeciąganie elementów na stronie-->
+<script type="text/javascript">
+	
+	function init(){
+		//wyrażenie DRAGSTART dla zapoczątkowania przeciągania elementu.
+        document.getElementById("obrazek").addEventListener("dragstart",obsluzPoczatek, false);
+		//wyrażenie DRAGEND kończące przeciaganie elementu.
+        document.getElementById("obrazek").addEventListener("dragend",obsluzKoniec, false);
+	}
+	//funkcja obniżajaca przejrzystość obrazka do 20% po zapoczątkowniu przeciagania elementu.
+	function obsluzPoczatek(){
+		this.style.opacity = "0.2";
+	}
+	//funkcja przywracajaca przejrzystość obrazka do 100% po zakończeniu przeciągania elementu. 
+	function obsluzKoniec(){
+		this.style.opacity = "1";
+	}
+	//wywołanie funkcji
+	window.onload = function(){
+		init();
+	}
+	
+</script>
+
+</head>
+
+<body>
+<!--obrazek do przeciągania-->
+    <img src="../Elementy przeciągane/image/okladka.png" alt="#" id="obrazek" />
+    
+</body>
+</html>
