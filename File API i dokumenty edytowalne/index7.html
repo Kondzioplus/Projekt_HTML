@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>File Reader</title>
-<!--wygląd, style-->
+<!--style, wygląd-->
 <link rel="stylesheet" type="text/css" href="style.css" />
 <!--funkcja wywołujaca komunikat z tytułem pliku podczas dodawania/przeglądania dokumentów-->
 <script type="text/javascript">
@@ -13,27 +13,28 @@
 	}
 
 	window.addEventListener("load",init);
-	//funkcja sprawdzajaca TYP obrazka
+	//funkcja ustanawiajaca POCZATEK i KONIEC pobranej treści z pliku.
 	function zmianaPliku(plik){
-		var nowyplik1 = plik.target.files[0];
-		//wyrażenie warunkowe "image/*"- typ image / przez wszystkie podtypy.
-		if(!nowyplik1.type.match("image/*") ){
-			alert("To nie jest plik obrazka");
+		var nowyplik2 = plik.target.files[0];
+		//parametry POCZATEK i KONIEC
+		var pocz = 0;
+		var koniec = 20;
+		//wyrażenie warunkowe sprawdzajace TYP pliku.
+		if(nowyplik2.type != "text/plain" ){
+			alert("To nie jest plik tekstowy");
 			return;
 		}
 		//funkcja wyswietlajaca treść komunikatu na stronie zamiast okienka ALERT.
 		var reader = new FileReader();
-		//pamietaj utworzyć plik tekstowy o nazwie "nowyplik1" z komunikatem!
+		//pamietaj utworzyć plik tekstowy o nazwie "nowyplik2" z komunikatem!
 		reader.onload = function(zdarzenie){
 			var zawartosc = zdarzenie.target.result;
-			
-			var obrazek = new Image();
-			obrazek.src = zdarzenie.target.result;
-			document.getElementById("tresc").appendChild(obrazek);
-			
+			document.getElementById("tresc").innerHTML = zawartosc;
 		}
+		//wyrażenie wyswietlajace POCZATEK i KONIEC tresci z pliku.
+		var fragment = nowyplik2.slice(pocz,koniec);
 		//wywołanie funkcji.
-		reader.readAsDataURL(nowyplik1);
+		reader.readAsText(fragment);
 		
 	}
 
@@ -45,7 +46,7 @@
 <!--przycisk PRZEGLADAJ do dodawania plików-->
     <input type="file" id="plik" />
 <!--div z treścia komunikatu do wyswietlenia zamiast okienka ALERT-->
-    <div id="tresc"></div>
+	<div id="tresc"></div>
 
 </body>
 </html>
