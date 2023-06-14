@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Przeciąganie</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="../Elementy przeciągane/style/style2.css" />
+
+<script type="text/javascript">
+	//funkcja umożliwiająca przeciaganie plików.
+	function init(){
+        //metoda umożliwiajaca przeciaganie plików we wskazanym miejscu.
+		document.getElementById("zrzut").addEventListener("dragover",obsluzDragover,false);
+		//metoda umozliwiająca ZRZUT plików w wyznaczonym miejscu.
+        document.getElementById("zrzut").addEventListener("drop",obsluzDrop,false);
+	}
+    
+	function obsluzDragover(e){
+		//metoda blokująca domyslne akcje przeglądarki.
+        e.preventDefault();
+		return false;
+	}
+	//funkcja obsługująca ZRZUT
+	function obsluzDrop(e){
+		e.preventDefault();
+		//transfer danych.
+		var plik = e.dataTransfer.files[0];
+		alert(plik.name);
+	}
+	//wywołanie funkcji
+	window.onload = function(){
+		init();
+	}
+	
+</script>
+
+</head>
+
+<body>
+
+<!--pole do zrzutu plików-->
+    <div id="zrzut">
+    </div>
+    
+</body>
+</html>
