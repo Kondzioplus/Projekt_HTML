@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Web Storage</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="../Przechowywanie danych/style/style.css" />
+
+<script type="text/javascript">
+//funkcja przypisująca dane takie jak NAZWA i PROJEKT. SETITEM
+	function ustawWartosc(){
+		localStorage.setItem('nazwa','Kurs HTML5');
+	}
+//funkcja odczytujaca dane takie jak NAZWA. GETITEM
+	function pokazWartosc(){
+		var wartosc = localStorage.getItem('nazwa');
+		alert(wartosc);
+	}
+//funkcja usuwajaca zawartość. REMOVEITEM
+	function usunWartosc(){
+		localStorage.removeItem('nazwa');
+	}
+	
+
+</script>
+
+</head>
+
+<body>
+<!--przycisk USTAW (przypisuje nazwe)-->
+	<input type="button" value="Ustaw" id="ustaw" onClick="ustawWartosc()"/>
+<!--przycisk POKAŻ (wyswietla nazwe)-->
+    <input type="button" value="Pokaż" id="pokaz" onClick="pokazWartosc()"/>
+<!--przycisk USUŃ (usuwa zawartość)-->
+    <input type="button" value="Usuń" id="usun" onClick="usunWartosc()"/>   
+
+</body>
+</html>
