@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Video</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+
+<script>
+	//funkcja, która przechowuje zmienna VIDEO
+	window.onload = function(){
+		var video = document.getElementById('video');
+		//zdarzenie ENDED(koniec odtwarzania filmu), film zapętlony.
+		video.addEventListener('ended',function(){
+			video.play();
+		})
+	}
+	
+</script>
+
+</head>
+
+<body>
+<!--plik VIDEO do odtworzenia-->
+    <video id="video" controls>
+    	<source src="video/intro.mp4" type="video/mp4">
+        <p>Brak obsługi VIDEO</p>
+    </video>
+</body>
+</html>
