@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Video</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+
+<script>
+	//funkcja, która przechowuje zmienna VIDEO, PLAY, PASEK
+	window.onload = function(){
+		var video = document.getElementById('video');
+		var playButton = document.getElementById('p_play');
+		var pasek = document.getElementById('p_range');
+		//zdarzenie CLICK, funkcja startujaca po kliknieciu.
+		playButton.addEventListener("click",function(){
+			//wyrażenie warunkowe, zmiana tekstu na przycisku + PLAY/PAUSE
+            if(video.paused == true){
+				video.play();
+				playButton.value = "Pause";
+			} else {
+				video.pause();
+				playButton.value = "Play";
+			}
+		})
+        //pasek do przewijania filmu (długość filmu razy pasek podzielony na 100)
+		pasek.addEventListener("click",function(){
+			var pozycja = video.duration * (pasek.value/100);
+			video.currentTime = pozycja;
+		})
+		
+	}
+	
+</script>
+
+</head>
+
+<body>
+<!--plik VIDEO do odtworzenia-->
+    <video id="video">
+    	<source src="video/intro.mp4" type="video/mp4">
+        <p>Brak obsługi VIDEO</p>
+    </video>
+    <p>Kontrolki:</p>
+    <!--przycisk PLAY/PAUSE-->
+    <input type="button" id="p_play" value="Play" />
+    <!--fizyczny pasek do przesuwania filmu-->
+    <input type="range" id="p_range" value="0" />
+
+</body>
+</html>
