@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Iframe</title>
+<!---style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+
+<script>
+//funkcja odczytujaca zdarzenie.
+	function pokazWiadomosc(zdarz){
+		var wiadomosc;
+		//test, zdarzenie sprawdzajace czy pliki pochodza z tego samego serwera.
+        if(zdarz.origin != "http://localhost"){
+			wiadomosc = "Brak uprawnień";
+		} else {
+			wiadomosc = zdarz.data;
+		}
+        //wyciagamy treść z dokumentu IFRAME.
+		document.getElementById('tresc').innerHTML = wiadomosc;
+	}
+//zdarzenie WIADOMOŚĆ(tresc wpisana do okna i wysłana do formularza).
+	window.addEventListener("message", pokazWiadomosc, false);
+
+</script>
+
+</head>
+
+<body>
+<!--dokument IFRAME-->
+    <p id="tresc">Zawartość iframe.html</p>
+
+</body>
+</html>
