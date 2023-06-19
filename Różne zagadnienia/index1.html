@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Web workers</title>
+
+
+</head>
+
+<body>
+
+    <h1>Web workers</h1>
+    <!--pole z WYNIKIEM-->
+    <p>Bieżąca wartość: <output id="wynik"></output></p>
+   <!--przycisk START, zaczyna obliczenia-->
+    <input type="button" id="start" value="Start" onClick="startW()"/>
+   <!--przycisk STOP, kończy obliczenia-->
+    <input type="button" id="stop" value="Stop" onClick="stopW()" />
+   
+   
+<script>
+
+	var w;
+//funkcja uruchamiana po kliknieciu w przycisk START.
+	function startW(){
+		//zmienna odczytujaca plik OBLICZENIA.
+        w = new Worker("js/obliczenia.js");
+		//zmienna W wywołana na zdarzeniu ONMESSAGE, pokazuje wynik.
+        w.onmessage = function(e){
+			document.getElementById("wynik").innerHTML = e.data;
+		}
+	}
+	//funkcja uruchamiana po kliknieciu w przycisk STOP(TERMINATE).
+	function stopW(){
+		w.terminate();
+	}
+
+</script>
+
+</body>
+</html>
