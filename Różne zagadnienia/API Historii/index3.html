@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Trzeci</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+
+<script>
+//funkcja odczytujaca historie poruszania sie po stronach w przeglądarce.
+	function wroc(){
+		//wraca 2 strony do tyłu.
+        window.history.go(-2);
+	}
+
+</script>
+
+
+</head>
+
+<body>
+
+	<h2>index3.html</h2>
+   <!--przycisk WRÓĆ (cofa do PIERWSZEJ strony)-->
+    <input type="button" value="Wróć do index.html" id="wroc" onClick="wroc()" />
+
+</body>
+</html>
