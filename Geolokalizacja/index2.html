@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Geo</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style.css" />
+<!--podstawowe odwołanie do map GOOGLE-->
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+	//test czy przeglądarka obsługuje GEOLOKALIZACJE.
+	if(navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(function(polozenie){
+			//zmienna zawierajaca aktualne koordynaty SZEROKOŚĆ geograficzna.
+            var szer = polozenie.coords.latitude;
+			//zmienna zawierajaca aktualne koordynaty DŁUGOŚĆ geograficzna.
+            var dlug = polozenie.coords.longitude
+			//zmienna z przypisanymi koordynatami SZEROKOSC/DLUGOSC.
+			var koord = new google.maps.LatLng(szer,dlug);
+			//podstawowe opcje mapy.
+			var opcje = {
+				zoom: 15,
+				center: koord,
+				mapTypeControl: true,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			//zmienna zawierająca mape(znajduje sie w DIV kontener)
+			var mapa = new google.maps.Map(document.getElementById("kontener"),opcje);
+			//marker, wskaźnik gdzie sie aktualnie znajdujesz.
+            var marker = new google.maps.Marker({
+				position: koord,
+				map: mapa,
+				title: "Jesteś tutaj"
+			});
+	});
+	} else {
+		alert("Brak geolokalizacji");
+	}
+
+</script>
+
+</head>
+
+<body>
+<!--mapa google, musi posiadac wysokosc i szerokosc w stylach-->
+	<div id="kontener">
+    </div>
+
+
+</body>
+</html>

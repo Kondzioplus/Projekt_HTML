@@ -9,6 +9,7 @@
 <script>
 //funkcja pobierajaca aktualną pozycje z przegladarki. GETCURRENTPOSITION.
 	function pobierzPolozenie(){
+		//test czy przeglądarka obsługuje GEOLOKALIZACJE.
 		if(navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(pokazPolozenie);
 		} else {
