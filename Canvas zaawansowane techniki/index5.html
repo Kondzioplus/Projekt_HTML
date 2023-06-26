@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+//zdarzenie automatycznego startu przy uruchomieniu strony.
+	window.onload = function(){
+		//zmienna przechowuje element CANVAS.
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+		//zmienna przechowujaca OBRAZ.
+		var img = document.getElementById("obraz");
+        //metoda ARC tworzaca OKRĄG (współrzędne ŚRODKA 1, współrzędne ŚRODKA 2, PROMIEŃ, KĄT poczatkowy, KĄT końcowy).
+		ctx.arc(300,250,100,0,2 * Math.PI);
+        //metoda CLIP przycina obrazek.
+        ctx.clip();
+        //metoda RYSOWANIE w canvas
+        ctx.drawImage(img,160,115);
+        
+		
+	}
+
+</script>
+
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+    <!--obrazek-->
+    <img src="image/kurs_wp.png" id="obraz" />
+
+</body>
+</html>

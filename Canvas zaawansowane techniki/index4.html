@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+//zdarzenie automatycznego startu przy uruchomieniu strony.
+	window.onload = function(){
+		//zmienna przechowuje element CANVAS.
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+		//zmienna przechowujaca OBRAZ.
+		var img = document.getElementById("obraz");
+		//metoda rozpoczynajaca nową LINIĘ.
+        ctx.beginPath();
+		//metoda przenosząca kursor do punktu poczatkowego.
+        ctx.moveTo(200,170);
+		//metoda określajaca punkty POCZATKOWY i KOŃCOWY "A".
+        ctx.lineTo(360,190);
+		//metoda określajaca punkty POCZATKOWY i KOŃCOWY "B".
+        ctx.lineTo(240,330);
+		//metoda ZAMYKAJACA/ŁĄCZĄCA linie.
+        ctx.closePath();
+		//metoda zatwierdzajaca utworzenie LINII.
+        ctx.stroke();
+		//metoda CLIP przycina obrazek.
+        ctx.clip();
+		//metoda RYSOWANIE w canvas (OBRAZ, współrzedne osi X, współrzedne osi Y, rozmiar obrazka podzielony na pół)
+        ctx.drawImage(img,160,115);
+		
+	}
+
+</script>
+
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+    <!--obrazek-->
+    <img src="image/kurs_wp.png" id="obraz" />
+
+</body>
+</html>
