@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+    //zdarzenie automatycznego startu przy uruchomieniu strony.
+    window.onload = function(){
+		//zmienna przechowuje element CANVAS. 
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+        //zmienna przechowujaca GRADIENT.
+        var grad = ctx.createLinearGradient(0,0,200,0);
+		//metoda generujaca PUNKT1 KOLORU.
+        grad.addColorStop(0,"#FF8500");
+		//metoda generujaca PUNKT2 KOLORU
+        grad.addColorStop(0.5,"#000");
+		//metoda generujaca PUNKT3 KOLORU
+        grad.addColorStop(1,"#0776a0");
+		//metoda WYPEŁNIENIE kolorem.
+		ctx.fillStyle = grad;
+		//współrzędne obiektu 1 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(0,0,200,150);
+		
+		
+	}
+</script>
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
