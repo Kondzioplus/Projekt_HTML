@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+
+<script>
+//zdarzenie automatycznego startu przy uruchomieniu strony.
+	window.onload = function(){
+		//zmienna przechowuje element CANVAS.
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+		//metoda ZMIANA KRYCIA/MIESZANIA kwadratów.	
+		ctx.globalCompositeOperation = 'destination-atop'
+		//metoda WYPEŁNIENIE kolorem.
+		ctx.fillStyle = "#FF0000";
+        //współrzędne obiektu 1 (poziom, pion, szerokość, wysokość).
+		ctx.fillRect(200,200,150,150);
+		//metoda WYPEŁNIENIE kolorem.
+        ctx.fillStyle = "#00F";
+        //współrzędne obiektu 2 (poziom, pion, szerokość, wysokość).
+		ctx.fillRect(160,160,150,150);
+		
+	}
+
+</script>
+
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
