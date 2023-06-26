@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+
+<script>
+//zdarzenie automatycznego startu przy uruchomieniu strony.
+	window.onload = function(){
+		//zmienna przechowuje element CANVAS.
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+		//metoda WYPEŁNIENIE kolorem.
+		ctx.fillStyle = "#FF0000";
+		//metoda PRZENOSI punkt ODNIESIENIA(nowe współrzedne).
+        ctx.translate(250,250);
+		//metoda ROTATE obraca kształty w elemencie canvas.
+        ctx.rotate(.2);
+		//współrzędne obiektu 1 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(0,0,170,55);
+		//metoda ROTATE obraca kształty w elemencie canvas.
+        ctx.rotate(.4);
+		//współrzędne obiektu 2 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(0,0,170,55);
+		//metoda ROTATE obraca kształty w elemencie canvas.
+        ctx.rotate(.6);
+		//współrzędne obiektu 3 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(0,0,170,55);
+		
+	}
+
+</script>
+
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
