@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+    //zdarzenie automatycznego startu przy uruchomieniu strony.
+    window.onload = function(){
+		//zmienna przechowuje element CANVAS. 
+        var cnv = document.getElementById("canvas");
+		//zmimenna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+		//zmienna przechowujaca COLOR.
+		var color = "#CCC";
+		//styl wypełnienia obiektu.
+		ctx.fillStyle = color;
+		//współrzędne obiektu 1 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(0,0,50,50);
+		
+		ctx.fillStyle = color;
+		//współrzędne obiektu 2 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(50,50,50,50);
+		
+		ctx.fillStyle = color;
+		//współrzędne obiektu 3 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(100,100,50,50);
+	}
+</script>
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
