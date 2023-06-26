@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+    //zdarzenie automatycznego startu przy uruchomieniu strony.
+    window.onload = function(){
+		//zmienna przechowuje element CANVAS. 
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+        //zmienna przechowujaca OBRAZEK.
+		var wzorObr = new Image();
+		//wywołanie WZORKA
+		wzorObr.onload = function(){
+			//metoda STWÓRZ WZOREK (obrazek, czy ma byc powielany)
+            ctx.fillStyle = ctx.createPattern(wzorObr,"repeat");
+			//metoda STWÓRZ PROSTOKĄT (dynamiczne pobranie)
+            ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+		}
+		//zdjęcie wzorka(ŹRÓDŁO).
+		wzorObr.src = "images/wzr.png";
+	}
+</script>
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
