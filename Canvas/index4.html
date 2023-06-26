@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+    //zdarzenie automatycznego startu przy uruchomieniu strony.
+    window.onload = function(){
+		//zmienna przechowuje element CANVAS. 
+        var cnv = document.getElementById("canvas");
+		//zmimenna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+        //metoda rozpoczynajaca nową LINIĘ.
+        ctx.beginPath();
+		//metoda ARC tworzaca ŁUK (współrzędne ŚRODKA 1, współrzędne ŚRODKA 2, PROMIEŃ, KĄT poczatkowy, KĄT końcowy).
+        ctx.arc(300,300,150,0,1 * Math.PI);
+		//metoda zatwierdzajaca utworzenie LINII.
+        ctx.stroke();
+		
+	}
+</script>
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
