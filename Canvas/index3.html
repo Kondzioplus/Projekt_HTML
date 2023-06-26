@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+    //zdarzenie automatycznego startu przy uruchomieniu strony.
+    window.onload = function(){
+		//zmienna przechowuje element CANVAS. 
+        var cnv = document.getElementById("canvas");
+		//zmimenna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+        //metoda rozpoczynajaca nową LINIĘ.
+        ctx.beginPath();
+        //metoda przenosząca kursor do punktu poczatkowego.
+        ctx.moveTo(0,0);
+        //metoda POGRUBIAJĄCA linie.
+        ctx.lineWidth = "4";
+        //metoda określajaca punkty POCZATKOWY i KOŃCOWY.
+        ctx.lineTo(200,100);
+        
+        ctx.lineTo(100,180);
+		
+        ctx.lineTo(50,410);
+		//metoda zatwierdzajaca utworzenie LINII.
+        ctx.stroke();
+	}
+</script>
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
