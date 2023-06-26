@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<title>Canvas</title>
+<!--style, wygląd-->
+<link rel="stylesheet" type="text/css" href="style/style2.css" />
+
+<script>
+    //zdarzenie automatycznego startu przy uruchomieniu strony.
+    window.onload = function(){
+		//zmienna przechowuje element CANVAS. 
+        var cnv = document.getElementById("canvas");
+		//zmienna przechowujaca CONTEXT(rysunki dwuwymiarowe).
+        var ctx = cnv.getContext("2d");
+        //zmienna przechowujaca TEKST.
+        var tekst = "Canvas Tekst";
+		//metoda określa KOLOR CIENIA.
+        ctx.shadowColor = "#222";
+		//metoda przesunięcia osi X (CIEŃ)
+        ctx.shadowOffsetX = 10;
+		//metoda przesuniecia osi Y (CIEŃ)
+        ctx.shadowOffsetY = 10;
+		//metoda ROZMYCIA cienia.
+        ctx.shadowBlur = 7;
+		//metoda WYPEŁNIENIE kolorem.
+		ctx.fillStyle = "red";
+		//współrzędne obiektu 1 (poziom, pion, szerokość, wysokość).
+        ctx.fillRect(150,150,200,75);
+		//metoda FONT(rozmiar czcionki, rodzaj czcionki)
+		ctx.font = "30px Verdana";
+		//metoda wyprowadzajaca TEKST z domyslnymi ustawieniami (tekst, odsunięcie w poziomie, odsuniecie w pionie).
+        ctx.fillText(tekst,400,400);
+		
+	}
+</script>
+</head>
+
+<body>
+
+    <h1>Canvas</h1>
+    <!--znacznik canvas, można w nim tworzyć animacje-->
+    <canvas id="canvas" width="600px" height="500px">Brak obsługi CANVAS</canvas>
+
+</body>
+</html>
